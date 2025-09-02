@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Marketing para Agência Digital Prisma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page, vertical scrolling layout was chosen for simplicity and a narrative flow. The structure is thematic: 1. Hero Introduction, 2. Services Offered, 3. Methodology, 4. Interactive Investment Calculator. This guides the user logically from the 'what' to the 'how' and finally the 'how much'. The interactive slider and chart in the investment section are the key engagement points, allowing for instant visualization of cost scaling, making the proposal tangible and transparent. -->
+    <!-- Visualization & Content Choices: Report Info: Investment Tiers -> Goal: Clarify pricing -> Viz/Presentation: Interactive Slider + Dynamic Bar Chart -> Interaction: User drags slider to select number of clients, chart and text update in real-time -> Justification: Makes pricing model easy to understand and engaging, far superior to a static table. -> Library/Method: Chart.js for the bar chart due to its simplicity and clean aesthetic. Vanilla JS for slider event handling and DOM manipulation. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F7F4;
+            color: #4A4A4A;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #0077B6, #00B4D8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-2xl font-bold text-gray-800">Héracles, Gestor de Tráfego</h1>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="bg-white">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Proposta de Marketing Digital</h1>
+                <p class="text-xl text-gray-600">Para Agência Prisma (Nicho: Clínicas de Nutrição e Oftalmologia)</p>
+            </div>
+        </section>
+
+        <section id="servicos" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Serviços Propostos</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl mr-4">📍</span>
+                            <h3 class="text-2xl font-bold text-gray-800">Google Meu Negócio</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">A base da visibilidade local. Transformarei o perfil de cada clínica em uma poderosa ferramenta de atração e conversão, garantindo que elas sejam encontradas por pacientes próximos.</p>
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-gray-700">Implementação Inicial (Mês 1):</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Criação da conta (caso não exista)</li>
+                                <li>Auditoria e Otimização Completa</li>
+                                <li>Seleção de Categorias Estratégicas</li>
+                                <li>Upload de Mídia Profissional</li>
+                                <li>Criação de Descrição Persuasiva</li>
+                            </ul>
+                            <h4 class="font-bold text-gray-700 mt-4">Acompanhamento Contínuo:</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Monitoramento de avaliações</li>
+                                <li>Publicações semanais</li>
+                                <li>Análise de insights de desempenho</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                         <div class="flex items-center mb-4">
+                             <span class="text-3xl mr-4">🎯</span>
+                            <h3 class="text-2xl font-bold text-gray-800">Gestão de Tráfego</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Minha gestão de tráfego pago focará em atrair pacientes qualificados para as clínicas por meio de campanhas estratégicas no Google e nas redes sociais (Meta).</p>
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-gray-700">Google Ads (Pesquisa e Display):</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Criação e configuração da conta</li>
+                                <li>Campanhas focadas em público geolocalizado</li>
+                                <li>Uso de palavras-chave de alta intenção</li>
+                                <li>Remarketing para visitantes do site</li>
+                            </ul>
+                             <h4 class="font-bold text-gray-700 mt-4">Meta Ads (Facebook e Instagram):</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>Segmentação demográfica e por interesses</li>
+                                <li>Criação de públicos personalizados e semelhantes</li>
+                                <li>Criativos de alto impacto (imagem e vídeo)</li>
+                                <li>Campanhas de Geração de Leads</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="metodologia" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-16">Metodologia de Trabalho</h2>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-12 justify-items-center">
+
+                    <div class="w-64 h-64 md:w-72 md:h-72 bg-white rounded-full shadow-lg flex flex-col justify-center items-center text-center p-6 card-hover">
+                        <div class="text-5xl mb-2 gradient-text">1</div>
+                        <h3 class="font-bold text-lg mb-1">Onboarding e Alinhamento</h3>
+                        <p class="text-gray-600 text-sm px-2">Entendimento das metas, persona e concorrência para definir a estratégia.</p>
+                    </div>
+
+                    <div class="w-64 h-64 md:w-72 md:h-72 bg-white rounded-full shadow-lg flex flex-col justify-center items-center text-center p-6 card-hover">
+                        <div class="text-5xl mb-2 gradient-text">2</div>
+                        <h3 class="font-bold text-lg mb-1">Estruturação e Execução</h3>
+                        <p class="text-gray-600 text-sm px-2">Configuração de contas, instalação de pixels e lançamento das campanhas.</p>
+                    </div>
+
+                    <div class="w-64 h-64 md:w-72 md:h-72 bg-white rounded-full shadow-lg flex flex-col justify-center items-center text-center p-6 card-hover">
+                        <div class="text-5xl mb-2 gradient-text">3</div>
+                        <h3 class="font-bold text-lg mb-1">Otimização e Análise</h3>
+                        <p class="text-gray-600 text-sm px-2">Análise de performance e testes A/B para otimizar as campanhas.</p>
+                    </div>
+
+                    <div class="w-64 h-64 md:w-72 md:h-72 bg-white rounded-full shadow-lg flex flex-col justify-center items-center text-center p-6 card-hover">
+                        <div class="text-5xl mb-2 gradient-text">4</div>
+                        <h3 class="font-bold text-lg mb-1">Relatórios e Comunicação</h3>
+                        <p class="text-gray-600 text-sm px-2">Reuniões e relatórios para apresentar resultados e planejar os próximos passos.</p>
+                    </div>
+
+                </div>
+                 <div class="mt-20 max-w-4xl mx-auto bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-6 rounded-lg">
+                    <h4 class="font-bold text-lg mb-4">Comunicação e Reuniões</h4>
+                    <ul class="space-y-3">
+                        <li><strong class="font-semibold">Reunião Inicial:</strong> Sessão aprofundada para entender as necessidades e alinhar metas.</li>
+                        <li><strong class="font-semibold">Reunião Quinzenal:</strong> Acompanhamento dos resultados iniciais dos anúncios e ajustes de estratégia.</li>
+                        <li><strong class="font-semibold">Reunião Mensal:</strong> Apresentação consolidada dos resultados do mês e planejamento para o próximo ciclo.</li>
+                        <li><strong class="font-semibold">Disponibilidade:</strong> Reuniões podem ser agendadas até duas vezes por semana, marcadas com 24h de antecedência para organização dos materiais, conforme disponibilidade mútua.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="investimento" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-4">Proposta de Investimento</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Uma estrutura clara e acessível, focada na construção de uma parceria de longo prazo.</p>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+                    <div class="mb-8">
+                        <label for="clinicas" class="block text-lg font-semibold text-gray-700 mb-2">Número de Clínicas: <span id="clinicCount" class="font-bold gradient-text">1</span></label>
+                        <input type="range" id="clinicas" min="1" max="5" value="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-gray-600">Investimento Total - Mês 1:</p>
+                                    <p id="totalMes1" class="text-3xl font-bold text-gray-800">R$ 700,00</p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600">Investimento Total - Meses Seguintes:</p>
+                                    <p id="totalMesesSeguintes" class="text-2xl font-semibold text-gray-700">R$ 600,00/mês</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 text-sm text-gray-500">
+                                <p><strong>Observação:</strong> O valor investido em anúncios (verba de mídia) não está incluso e será pago diretamente pelo cliente final ao Google/Meta.</p>
+                                <p class="font-semibold mt-2"><strong>Condição de Pagamento:</strong> O valor referente ao primeiro mês de serviço de cada cliente deve ser pago integralmente para o início dos trabalhos.</p>
+                            </div>
+                        </div>
+                        <div class="chart-container" style="position: relative; height:250px; width:100%">
+                            <canvas id="investmentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slider = document.getElementById('clinicas');
+            const clinicCount = document.getElementById('clinicCount');
+            const totalMes1 = document.getElementById('totalMes1');
+            const totalMesesSeguintes = document.getElementById('totalMesesSeguintes');
+            const ctx = document.getElementById('investmentChart').getContext('2d');
+
+            const formatCurrency = (value) => {
+                return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            };
+
+            const data = {
+                labels: ['Mês 1 (Setup)', 'Gestão Contínua'],
+                datasets: [{
+                    label: 'Investimento Total',
+                    data: [700, 600],
+                    backgroundColor: [
+                        'rgba(0, 119, 182, 0.6)',
+                        'rgba(0, 180, 216, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 119, 182, 1)',
+                        'rgba(0, 180, 216, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return formatCurrency(value);
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                             callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += formatCurrency(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            const investmentChart = new Chart(ctx, config);
+
+            function updateValues(count) {
+                const mes1Value = count * 700;
+                const mesesSeguintesValue = count * 600;
+
+                clinicCount.textContent = count;
+                totalMes1.textContent = formatCurrency(mes1Value);
+                totalMesesSeguintes.textContent = formatCurrency(mesesSeguintesValue) + '/mês';
+                
+                investmentChart.data.datasets[0].data = [mes1Value, mesesSeguintesValue];
+                investmentChart.update();
+            }
+
+            slider.addEventListener('input', (event) => {
+                updateValues(event.target.value);
+            });
+            
+            updateValues(slider.value); 
+        });
+    </script>
+</body>
+</html>
+
